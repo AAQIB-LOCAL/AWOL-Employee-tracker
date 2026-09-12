@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_share"
+        android:icon="@drawable/cellphone_screenshot"
+        android:title="@string/share"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_aboutUs"
+        android:icon="@drawable/help_circle_outline"
+        android:title="@string/about_us"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_setting"
+        android:icon="@drawable/settings"
+        android:title="@string/setting"
+        app:showAsAction="always" />
+</menu>

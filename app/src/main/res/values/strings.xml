@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AWOL Employee Tracker</string>
+    <string name="app_tagline">Smart Geofenced &amp; Biometric Attendance</string>
+
+    <!-- Authentication -->
+    <string name="login_title">Welcome Back</string>
+    <string name="login_subtitle">Sign in to track your attendance &amp; shifts</string>
+    <string name="email_hint">Work Email or ID</string>
+    <string name="password_hint">Password</string>
+    <string name="btn_login">Sign In</string>
+    <string name="quick_login_employee">Demo Employee Sign In</string>
+    <string name="quick_login_admin">Demo Admin Sign In</string>
+    <string name="login_error">Invalid credentials. Please try again.</string>
+
+    <!-- Employee Dashboard -->
+    <string name="employee_dashboard">Employee Dashboard</string>
+    <string name="clock_in">Clock In</string>
+    <string name="clock_out">Clock Out</string>
+    <string name="status_checked_in">Checked In</string>
+    <string name="status_checked_out">Checked Out</string>
+    <string name="shift_duration">Shift Duration</string>
+    <string name="geofence_status">Office Geofence</string>
+    <string name="geofence_inside">Inside Workplace Radius</string>
+    <string name="geofence_outside">Outside Workplace Radius</string>
+    <string name="geofence_service_enable">Enable Auto Tracking</string>
+    <string name="geofence_service_disable">Disable Auto Tracking</string>
+    <string name="biometric_prompt_title">Biometric Verification</string>
+    <string name="biometric_prompt_subtitle">Authenticate to record attendance timestamp</string>
+    <string name="biometric_prompt_cancel">Cancel</string>
+    <string name="attendance_history">Recent Attendance</string>
+    <string name="view_all">View All</string>
+    <string name="today_stat">Today</string>
+    <string name="week_stat">This Week</string>
+    <string name="month_stat">This Month</string>
+
+    <!-- Admin Dashboard -->
+    <string name="admin_dashboard">Admin Management</string>
+    <string name="total_employees">Total Staff</string>
+    <string name="present_today">Present Today</string>
+    <string name="absent_today">Absent Today</string>
+    <string name="tab_present_staff">Present Today</string>
+    <string name="tab_all_staff">All Employees</string>
+    <string name="add_employee">Register Employee</string>
+    <string name="export_report">Export Report</string>
+
+    <!-- Settings -->
+    <string name="settings">Settings</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="dark_mode_desc">Switch between light and dark themes</string>
+    <string name="geofence_settings">Workplace Geofence</string>
+    <string name="geofence_settings_desc">Configure office GPS coordinates and tracking radius</string>
+    <string name="sync_server">Sync with Server</string>
+    <string name="sync_server_desc">Upload offline attendance logs to cloud</string>
+    <string name="about">About App</string>
+    <string name="about_desc">AWOL Employee Tracker v1.0.0</string>
+    <string name="logout">Log Out</string>
+</resources>

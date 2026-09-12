@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/customTabs"
+        android:icon="@drawable/ic_moodle"
+        android:title="@string/moodle" />
+    <item
+        android:id="@+id/result"
+        android:icon="@drawable/clipboard_text_outline"
+        android:title="@string/results" />
+    <item
+        android:id="@+id/sa"
+        android:icon="@drawable/invite"
+        android:title="@string/share_app" />
+    <item
+        android:id="@+id/abt"
+        android:icon="@drawable/help_circle_outline"
+        android:title="@string/about_us" />
+</menu>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="minimumAttendanceArray">
+        <item>90%</item>
+        <item>85%</item>
+        <item>80%</item>
+        <item>75%</item>
+        <item>70%</item>
+        <item>65%</item>
+        <item>60%</item>
+        <item>55%</item>
+        <item>50%</item>
+    </string-array>
+
+    <string-array name="minimumAttendanceValues">
+        <item>90</item>
+        <item>85</item>
+        <item>80</item>
+        <item>75</item>
+        <item>70</item>
+        <item>65</item>
+        <item>60</item>
+        <item>55</item>
+        <item>50</item>
+    </string-array>
+
+    <string-array name="preferredThemes">
+        <item>Light</item>
+        <item>Dark</item>
+        <item>Follow system</item>
+    </string-array>
+</resources>
