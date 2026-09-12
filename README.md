@@ -31,6 +31,8 @@ AWOL-Employee-tracker/
 │   │   │   └── util/
 │   │   └── res/
 │   └── build.gradle
+├── legacy_references/
+│   └── README.md
 ├── build.gradle
 ├── settings.gradle
 ├── gradle.properties
@@ -39,7 +41,7 @@ AWOL-Employee-tracker/
 └── .gitignore
 ```
 
-The repository contains only the active application and project files. Historical reference projects and generated repository bloat were removed before the production-readiness work began.
+`legacy_references/` is intentionally a lightweight stub for selected historical references. The original legacy projects, generated artifacts, build outputs, IDE metadata, and other repository bloat were removed during cleanup; the directory should not contain active application code or restored bulk archives.
 
 ## Production-readiness roadmap
 
