@@ -1,112 +1,122 @@
 # AWOL - Employee Tracker
 
-[![Android Build](https://img.shields.io/badge/Platform-Android-green.svg)](https://developer.android.com)
-[![Gradle](https://img.shields.io/badge/Gradle-6.5-blue.svg)](https://gradle.org)
-[![AndroidX](https://img.shields.io/badge/AndroidX-Modern-orange.svg)](https://developer.android.com/jetpack/androidx)
-[![Architecture](https://img.shields.io/badge/Architecture-Centralized-brightgreen.svg)]()
+AWOL Employee Tracker is an Android attendance management application focused on employee clock-in/out, biometric verification, workplace proximity, local attendance storage, and separate employee and administrator experiences.
 
-**AWOL Employee Tracker** is a unified, stabilized Android attendance management system featuring **automated GPS geofencing**, **biometric check-in/out verification**, **dual-role dashboards (Employee & Administrator)**, and **offline-first SQLite caching with sync capabilities**.
+## Current capabilities
 
-Previously, implementations were scattered across disparate subdirectories. The repository has now been centralized into a single root-level Android Studio project with a modern AndroidX architecture, while preserving historical references in [`legacy_references/`](legacy_references/).
+- Employee clock-in and clock-out flows with biometric verification.
+- Live shift timing and attendance status.
+- Employee attendance history and summary views.
+- Administrator workforce and employee management views.
+- GPS-based workplace proximity checks and configurable geofence radius.
+- Foreground location tracking with boot-time service handling.
+- Offline-first local SQLite storage for employee and attendance data.
+- Session management and runtime light/dark theme switching.
 
----
-
-## Key Features
-
-### 1. 🕒 Smart Clock-In & Shift Tracking
-- **Biometric Security**: BiometricPrompt verification (fingerprint or device credentials) for secure clock-in/clock-out actions.
-- **Dynamic Shift Timer**: Live stopwatch tracking shift elapsed time and daily accumulated work hours.
-- **Instant Status Indicator**: Real-time visual status badges ("Checked In" vs "Checked Out").
-
-### 2. 📍 Automated GPS Geofencing
-- **Workplace Proximity Monitoring**: Continuously measures distance from office coordinates using Haversine calculation.
-- **Foreground Location Service**: Background location service (`LocationTrackingService`) with persistent status notifications.
-- **Configurable Radius**: Workplace coordinates and geofence threshold radius configurable in Settings (default: 100m).
-
-### 3. 👥 Dual Role Portals (Employee & Admin)
-- **Employee Portal**:
-  - Personal check-in / check-out controls.
-  - Daily, weekly, and monthly attendance statistics.
-  - 30-day chronological attendance history with sync status.
-- **Administrator Portal**:
-  - Live workforce headcount (Total Staff, Present Today, Absent).
-  - Filter toggle to view all employees or only those currently on the clock.
-  - In-app employee onboarding dialog to register new team members.
-
-### 4. 🌓 Modern Material UI & Dynamic Theming
-- Native **Light & Dark Mode** engine with dynamic runtime switching.
-- Bottom sheet authentication screen with quick one-click demo credentials.
-- Clean Material Design cards, badges, and responsive layouts.
-
-### 5. 💾 Offline-First SQLite Architecture
-- Embedded SQLite database (`awol_employee_tracker.db`) stores attendance stamps and employee records locally.
-- Tracks `is_synced` flags to allow offline clocking in/out with manual or automatic cloud synchronization.
-
----
-
-## Directory Structure
+## Current project structure
 
 ```text
 AWOL-Employee-tracker/
-├── app/                                # Primary centralized Android application module
+├── app/
 │   ├── src/main/
-│   │   ├── AndroidManifest.xml         # Consolidated permissions, services, activities
+│   │   ├── AndroidManifest.xml
 │   │   ├── java/com/awol/employeetracker/
-│   │   │   ├── AWOLApplication.java    # Application entrypoint & theme setup
+│   │   │   ├── AWOLApplication.java
 │   │   │   ├── activity/
-│   │   │   │   ├── SplashActivity.java        # Session-aware splash screen
-│   │   │   │   ├── LoginActivity.java         # Role selector & demo login
-│   │   │   │   ├── EmployeeMainActivity.java  # Employee attendance dashboard
-│   │   │   │   ├── AdminMainActivity.java     # Administrator staff manager
-│   │   │   │   └── SettingsActivity.java      # Geofence & theme preferences
 │   │   │   ├── adapter/
-│   │   │   │   ├── AttendanceAdapter.java     # Attendance log RecyclerView adapter
-│   │   │   │   └── EmployeeAdapter.java       # Staff directory RecyclerView adapter
 │   │   │   ├── database/
-│   │   │   │   └── AttendanceDatabaseHelper.java # Local SQLite storage
 │   │   │   ├── model/
-│   │   │   │   ├── AttendanceRecord.java      # Attendance entity
-│   │   │   │   └── Employee.java              # Employee entity
 │   │   │   ├── receiver/
-│   │   │   │   └── BootReceiver.java          # Boot completed auto-start receiver
 │   │   │   ├── service/
-│   │   │   │   └── LocationTrackingService.java # GPS Geofence foreground service
 │   │   │   └── util/
-│   │   │       ├── GeofenceHelper.java        # Distance & proximity math
-│   │   │       ├── SessionManager.java        # SharedPreferences session manager
-│   │   │       └── ThemeHelper.java           # Day/Night theme controller
-│   │   └── res/                               # Layouts, vector drawables, themes, mipmaps
-│   └── build.gradle                           # App-level dependencies & build settings
-├── legacy_references/                         # Archived historical reference codebases
-│   ├── AWOL/                                  # Original ITER university student portal
-│   ├── android-employee-tracker/              # Original standalone GPS tracking service
-│   ├── EASAndroid/                            # Original Employee Attendance System app
-│   ├── Attendance_Register/                   # Original classroom roll-call app
-│   ├── EmployeeAttendance/                    # Original PHP/MySQL attendance backend
-│   ├── Attendance-taking-in-android-app/      # Original MGNREGA scheme stub
-│   └── README.md                              # Detailed audit of reference projects
-├── build.gradle                               # Root project build configuration
-├── settings.gradle                            # Module inclusion (:app)
-├── gradle.properties                          # AndroidX & JVM configuration
-└── gradlew / gradlew.bat                      # Gradle wrapper executables
+│   │   └── res/
+│   └── build.gradle
+├── build.gradle
+├── settings.gradle
+├── gradle.properties
+├── gradlew
+├── gradlew.bat
+└── .gitignore
 ```
 
----
+The repository contains only the active application and project files. Historical reference projects and generated repository bloat were removed before the production-readiness work began.
 
-## Quick Demo Credentials
+## Production-readiness roadmap
 
-For testing and demonstration, pre-configured accounts are accessible via quick-login buttons on the sign-in screen:
+The application is being hardened incrementally rather than through a single large rewrite.
 
-| Role | Email | Password | Pre-seeded Records |
-| :--- | :--- | :--- | :--- |
-| **Employee** | `aaqib@company.com` | `1234` | Aaqib Khan (Engineering) |
-| **Administrator** | `admin@company.com` | `1234` | Admin Director (Executive) |
+### Phase 0 — Production baseline
 
----
+- Establish the current application boundary.
+- Keep repository documentation aligned with the actual source tree.
+- Define explicit production-readiness gates for subsequent phases.
+- Preserve the existing application behavior while the baseline is established.
 
-## Building and Running
+### Phase 1 — Build and Android platform modernization
 
-1. Open **Android Studio** (Electric Eel or newer recommended).
-2. Select **Open** and choose the root `AWOL-Employee-tracker` directory.
-3. Allow Gradle to sync the project.
-4. Run the app on an Android Emulator or physical device (API Level 21+).
+- Establish a supported Android SDK and Gradle toolchain.
+- Modernize AndroidX and dependency versions deliberately.
+- Remove obsolete build configuration and unused dependencies.
+- Validate debug and release builds after each modernization step.
+
+### Phase 2 — Security and authentication hardening
+
+- Replace demo-oriented authentication with a production authentication boundary.
+- Review authorization for employee and administrator capabilities.
+- Remove hardcoded credentials and other sensitive values.
+- Harden local session and biometric handling.
+
+### Phase 3 — Data and synchronization architecture
+
+- Review the SQLite schema and data lifecycle.
+- Define reliable synchronization and conflict handling.
+- Establish a production backend boundary where required.
+- Protect local and remote attendance data.
+
+### Phase 4 — Attendance and location reliability
+
+- Harden geofencing and foreground-service behavior across supported Android versions.
+- Handle permissions, battery restrictions, connectivity loss, and service restarts predictably.
+- Validate clock-in/out and attendance persistence under failure conditions.
+
+### Phase 5 — UX and operational polish
+
+- Improve accessibility, validation, empty states, loading states, and recoverable errors.
+- Standardize employee and administrator flows.
+- Remove demo-only presentation and behavior from production paths.
+
+### Phase 6 — Testing and release readiness
+
+- Establish meaningful unit, integration, and UI coverage around critical attendance flows.
+- Add release validation and manual deployment checklists.
+- Verify logging, diagnostics, privacy expectations, and rollback readiness.
+- Produce a repeatable production release process without introducing GitHub Actions.
+
+## Production gates
+
+A phase is considered production-ready only when the relevant area has:
+
+- A defined owner and clear behavior boundary.
+- No known blocker-level security or data-integrity issue within its scope.
+- Validation for the primary success path and important failure paths.
+- No unnecessary dependency or configuration introduced solely for convenience.
+- Documentation that matches the implemented behavior.
+- A manual verification path suitable for release testing.
+
+## Build and deployment
+
+1. Open the repository in Android Studio.
+2. Allow Gradle to sync using the project toolchain supported by the current phase.
+3. Run the application on a supported emulator or physical device.
+4. Execute the relevant manual validation checks for the phase being released.
+5. Build and deploy the release artifact manually.
+
+GitHub Actions are intentionally not part of this repository's deployment workflow.
+
+## Demo accounts
+
+The current application contains demo-oriented login flows for local testing. These are development conveniences and are not considered production authentication. Authentication hardening is explicitly tracked in Phase 2.
+
+## Production target
+
+The target is a maintainable, secure, reliable Android attendance product with clear employee/admin boundaries, dependable attendance records, resilient location behavior, controlled data synchronization, and a repeatable manual release process.
